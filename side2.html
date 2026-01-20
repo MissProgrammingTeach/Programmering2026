@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+    SIDE 2 - Om meg
+    ═══════════════
+
+    Denne siden viser hvordan vi kan ha flere HTML-sider
+    som lenker til hverandre. Legg merke til at strukturen
+    er lik som index.html!
+-->
+
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Om meg - Min nettside</title>
+    <!--
+        Hver side bør ha sin egen tittel!
+        Dette hjelper brukere å vite hvilken fane som er hvilken.
+    -->
+
+    <link rel="stylesheet" href="style.css">
+    <!--
+        Vi bruker SAMME CSS-fil for begge sidene!
+        Dette gjør at sidene ser like ut (konsistent design).
+    -->
+</head>
+
+<body>
+
+    <!-- ═══ NAVIGASJONSMENY ═══ -->
+    <nav>
+        <a href="index.html">Hjem</a>
+        <a href="side2.html">Om meg</a>
+        <!--
+            Denne menyen er lik på begge sidene.
+            Det gjør det lett for brukeren å navigere.
+        -->
+    </nav>
+
+    <!-- ═══ HOVEDINNHOLD ═══ -->
+    <main>
+        <h1>Om meg</h1>
+
+        <!-- ═══ PROFILBILDE ═══ -->
+        <img
+            src="https://picsum.photos/150/150"
+            alt="Profilbilde"
+            class="profilbilde"
+        >
+        <!--
+            class="profilbilde" lar oss style dette bildet
+            spesielt i CSS-filen. Se style.css for mer info!
+
+            OPPGAVE: Bytt ut med ditt eget bilde!
+        -->
+
+        <!-- ═══ PRESENTASJON ═══ -->
+        <h2>Hvem er jeg?</h2>
+        <p>
+            Hei! Jeg er en elev som lærer HTML og CSS.
+            Dette er min første nettside, og jeg synes det er
+            veldig gøy å se hvordan koden blir til en ekte nettside!
+        </p>
+        <!--
+            OPPGAVE: Skriv din egen presentasjon her!
+            Fortell litt om deg selv.
+        -->
+
+        <!-- ═══ INTERESSER ═══ -->
+        <h2>Mine interesser</h2>
+        <ul>
+            <li>Spille dataspill</li>
+            <li>Høre på musikk</li>
+            <li>Være med venner</li>
+            <li>Lære programmering</li>
+        </ul>
+        <!--
+            OPPGAVE: Bytt ut med dine egne interesser!
+        -->
+
+        <!-- ═══ FAVORITTER ═══ -->
+        <h2>Mine favoritter</h2>
+        <!--
+            Her bruker vi en DEFINISJONSLISTE (<dl>).
+            Den er perfekt for å vise "nøkkel: verdi"-par.
+        -->
+        <dl>
+            <dt>Favorittfarge</dt>
+            <dd>Blå</dd>
+
+            <dt>Favorittmat</dt>
+            <dd>Taco</dd>
+
+            <dt>Favorittfag</dt>
+            <dd>Matte og naturfag</dd>
+        </dl>
+        <!--
+            <dl> = Definition List
+            <dt> = Definition Term (det som defineres)
+            <dd> = Definition Description (beskrivelsen)
+
+            OPPGAVE: Legg til flere favoritter!
+        -->
+
+        <!-- ═══ KONTAKT ═══ -->
+        <h2>Kontakt meg</h2>
+        <p>
+            Du kan sende meg en e-post:
+            <a href="mailto:eksempel@skole.no">eksempel@skole.no</a>
+        </p>
+        <!--
+            mailto: lager en e-postlenke.
+            Når du klikker på den, åpnes e-postprogrammet ditt!
+
+            OPPGAVE: Endre til din egen e-postadresse
+            (men vær forsiktig med å dele personlig info!)
+        -->
+
+        <!-- ═══ TILBAKE-LENKE ═══ -->
+        <p>
+            <a href="index.html">← Tilbake til forsiden</a>
+        </p>
+        <!--
+            ← er en HTML-entitet som viser en pil.
+            Andre nyttige entiteter:
+            • &rarr; → (pil høyre)
+            • &hearts; ♥ (hjerte)
+            • &copy; © (copyright)
+        -->
+
+    </main>
+
+    <!-- ═══ BUNNTEKST ═══ -->
+    <footer>
+        <p>Laget av en elev i 8. klasse | 2024</p>
+    </footer>
+
+</body>
+</html>

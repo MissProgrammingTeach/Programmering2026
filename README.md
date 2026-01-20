@@ -1,87 +1,97 @@
-# 🌐 Introduksjon til HTML og CSS
+# Lær HTML og CSS - Introduksjon for 8. klasse
 
-**Målgruppe:** 8. klasse
-**Varighet:** 2-3 skoletimer
-**Forkunnskaper:** Ingen
+## Om dette prosjektet
 
-## 📚 Om dette kurset
+Dette er et læringsprosjekt for deg som vil lære grunnleggende HTML og CSS. Her finner du to nettsider og en CSS-fil som du kan utforske og endre på.
 
-Dette kurset gir deg en grunnleggende innføring i HTML og CSS - byggesteinene for alle nettsider. Du vil lære å lage din egen nettside fra bunnen av!
+## Læringsmål
 
-## 🎯 Læringsmål
+Etter å ha jobbet med dette prosjektet skal du kunne:
 
-Etter dette kurset skal du kunne:
+1. **Forstå HTML-strukturen** - Vite hva `<!DOCTYPE html>`, `<html>`, `<head>` og `<body>` betyr
+2. **Bruke HTML-tagger** - Lage overskrifter, avsnitt, lister og mer
+3. **Style med CSS** - Endre farger, størrelser og utseende på elementer
+4. **Legge til bilder** - Bruke `<img>`-taggen for å vise bilder
+5. **Lage lenker** - Koble sammen sider med `<a>`-taggen
 
-1. **Forstå HTML-struktur** - Vite hva HTML er og hvordan en HTML-fil er bygget opp
-2. **Bruke CSS til styling** - Kunne endre farger, skriftstørrelser og utseende på elementer
-3. **Kjenne dokumentstrukturen** - Forstå hva `<!DOCTYPE html>`, `<html>`, `<head>` og `<body>` betyr
-4. **Legge til bilder og lenker** - Kunne sette inn bilder og lage klikkbare lenker
+## Filstruktur
 
-## 📁 Innhold
+```
+webdev-artifacts/
+├── README.md        ← Du leser denne filen nå!
+├── index.html       ← Hovedsiden (start her)
+├── side2.html       ← Andre side (for å øve på lenker)
+└── style.css        ← CSS-filen som styler begge sidene
+```
 
-| Fil | Beskrivelse |
-|-----|-------------|
-| `index.html` | Startside med oversikt over alle leksjoner |
-| `leksjon1.html` | Leksjon 1: HTML-dokumentets grunnstruktur |
-| `leksjon2.html` | Leksjon 2: HTML-tagger og innhold |
-| `leksjon3.html` | Leksjon 3: Bilder og lenker |
-| `leksjon4.html` | Leksjon 4: CSS-styling |
-| `oppgave.html` | Din egen øvingsside |
-| `stil.css` | CSS-stilark som brukes av leksjonene |
+## Hvordan komme i gang
 
-## 🚀 Kom i gang
+### Steg 1: Last ned filene
+- Klikk på den grønne **"Code"**-knappen på GitHub
+- Velg **"Download ZIP"**
+- Pakk ut ZIP-filen på datamaskinen din
 
-### Metode 1: Last ned og rediger lokalt (anbefalt)
+### Steg 2: Åpne i nettleseren
+- Dobbeltklikk på `index.html` for å åpne den i nettleseren
 
-1. **Last ned filene:**
-   - Klikk på den grønne "Code"-knappen øverst på GitHub-siden
-   - Velg "Download ZIP"
-   - Pakk ut ZIP-filen på datamaskinen din
+### Steg 3: Rediger filene
+- Åpne filene i et tekstredigeringsprogram (f.eks. Notepad, VS Code, eller Notepad++)
+- Gjør endringer og lagre filen
+- Oppdater nettleseren (trykk F5) for å se endringene
 
-2. **Åpne filene:**
-   - Åpne mappen i en teksteditor (VS Code, Notepad++, eller lignende)
-   - Dobbeltklikk på `index.html` for å se siden i nettleseren
+## Oppgaver
 
-3. **Rediger og eksperimenter:**
-   - Gjør endringer i HTML- eller CSS-filene
-   - Lagre filen (Ctrl+S)
-   - Oppdater nettleseren (F5) for å se endringene
+### Oppgave 1: Utforsk strukturen
+Les gjennom `index.html` og se om du kan finne:
+- Hvor tittelen på siden defineres
+- Hvor CSS-filen kobles til
+- Hva som ligger i `<body>`-delen
 
-### Metode 2: Se leksjonene på nett
+### Oppgave 2: Endre tekst
+- Endre overskriften på hovedsiden
+- Legg til et nytt avsnitt med informasjon om deg selv
 
-Besøk GitHub Pages-versjonen for å lese gjennom leksjonene først.
+### Oppgave 3: Eksperimenter med CSS
+Åpne `style.css` og prøv å:
+- Endre bakgrunnsfargen på siden
+- Gjøre overskriften større eller mindre
+- Endre fargen på lenkene
 
-## 📝 Oppgaver
+### Oppgave 4: Legg til et bilde
+- Finn et bilde på internett (husk opphavsrett!)
+- Legg til bildet på en av sidene ved å bruke `<img>`-taggen
+- Tips: Se kommentarene i HTML-filene for hjelp
 
-Hver leksjon inneholder:
-- **Forklaring** av konseptet
-- **Kodeeksempler** du kan studere
-- **Prøv selv-oppgaver** du kan eksperimentere med
+### Oppgave 5: Lag din egen side
+- Lag en ny fil som heter `side3.html`
+- Kopier strukturen fra `index.html`
+- Fyll inn ditt eget innhold
+- Legg til en lenke til den nye siden
 
-Bruk `oppgave.html` som din personlige øvingsside der du kan teste alt du lærer!
+## Nyttige ressurser
 
-## 💡 Tips for læring
+- [W3Schools HTML Tutorial](https://www.w3schools.com/html/)
+- [W3Schools CSS Tutorial](https://www.w3schools.com/css/)
 
-1. **Les koden nøye** - Prøv å forstå hva hver linje gjør
-2. **Eksperimenter** - Endre verdier og se hva som skjer
-3. **Gjør feil** - Det er sånn man lærer! Feil er ikke farlig
-4. **Spør om hjelp** - Ikke vær redd for å spørre læreren
+## Vanlige HTML-tagger
 
-## 🔧 Verktøy du trenger
+| Tagg | Beskrivelse |
+|------|-------------|
+| `<h1>` til `<h6>` | Overskrifter (h1 er størst) |
+| `<p>` | Avsnitt (paragraf) |
+| `<a>` | Lenke |
+| `<img>` | Bilde |
+| `<ul>` | Punktliste |
+| `<ol>` | Nummerert liste |
+| `<li>` | Listeelement |
+| `<div>` | Innholdsboks |
 
-- En **nettleser** (Chrome, Firefox, Edge, Safari)
-- En **teksteditor** (VS Code anbefales, men Notisblokk fungerer også)
+## Tips
 
-## 📖 Ordliste
-
-| Begrep | Forklaring |
-|--------|------------|
-| **HTML** | HyperText Markup Language - språket som beskriver innholdet på nettsider |
-| **CSS** | Cascading Style Sheets - språket som bestemmer utseendet på nettsider |
-| **Tag** | En HTML-kode som forteller nettleseren hva innholdet er, f.eks. `<p>` for avsnitt |
-| **Element** | En komplett HTML-del med start-tag, innhold og slutt-tag |
-| **Attributt** | Ekstra informasjon i en tag, f.eks. `src` i `<img src="bilde.jpg">` |
+- **Lagre ofte!** Husk å lagre filen før du oppdaterer nettleseren
+- **Les feilmeldinger** - Hvis noe ikke fungerer, sjekk at alle tagger er lukket
+- **Eksperimenter!** - Den beste måten å lære på er å prøve og feile
 
 ---
 
-Lykke til med HTML og CSS! 🎉
+*Lykke til med kodingen!*
