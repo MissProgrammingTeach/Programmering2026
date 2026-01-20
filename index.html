@@ -17,116 +17,52 @@
 -->
 
 <head>
-    <!--
-        ═══════════════════════════════════════════════════════════
-        HEAD-SEKSJONEN
-        ═══════════════════════════════════════════════════════════
-
-        <head> inneholder informasjon OM siden, men vises ikke
-        direkte på selve nettsiden. Her legger vi:
-        - Tittel (vises i nettleserfanen)
-        - Kobling til CSS-filer
-        - Metadata (informasjon om siden)
-    -->
-
-    <meta charset="UTF-8">
-    <!--
-        charset="UTF-8" sørger for at norske bokstaver som
-        æ, ø og å vises riktig
-    -->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Gjør at siden ser bra ut på mobil -->
-
+    <meta charset="UTF-8"> <!--charset="UTF-8" sørger for at norske bokstaver som æ, ø og å vises riktig-->
     <title>Min første nettside</title>
-    <!--
-        OPPGAVE: Endre teksten mellom <title> og </title>
-        Se hva som skjer i nettleserfanen!
-    -->
-
     <link rel="stylesheet" href="style.css">
-    <!--
-        Denne linjen kobler CSS-filen til HTML-dokumentet.
-        "href" peker på filnavnet til CSS-filen.
-    -->
 </head>
 
 <body>
     <!--
-        ═══════════════════════════════════════════════════════════
-        BODY-SEKSJONEN
-        ═══════════════════════════════════════════════════════════
-
-        <body> inneholder ALT som vises på nettsiden:
-        - Tekst
-        - Bilder
-        - Lenker
-        - Osv.
+        <body> inneholder ALT som vises på nettsiden: Tekst, bilder, lenker, osv.
     -->
 
     <!-- ═══ NAVIGASJONSMENY ═══ -->
     <nav>
         <!--
-            <nav> brukes for navigasjonsmenyer.
             Inni har vi lenker (<a>) som tar oss til andre sider.
         -->
         <a href="index.html">Hjem</a>
         <a href="side2.html">Om meg</a>
-        <!--
-            OPPGAVE: Lag en tredje side og legg til en lenke her!
-            Tips: Kopier strukturen fra denne filen.
-        -->
     </nav>
 
-    <!-- ═══ HOVEDINNHOLD ═══ -->
     <main>
         <!-- <main> markerer hovedinnholdet på siden -->
 
         <!-- ═══ OVERSKRIFTER ═══ -->
         <h1>Velkommen til min nettside!</h1>
         <!--
-            <h1> er den største overskriften.
-            Du bør bare ha ÉN <h1> per side.
-
-            Det finnes 6 nivåer: <h1> til <h6>
-            <h1> = Størst
-            <h6> = Minst
-
-            OPPGAVE: Prøv å endre teksten i overskriften!
-        -->
+            <h1> er den største overskriften. Det finnes 6 nivåer: <h1> til <h6>-->
 
         <h2>Hva er HTML?</h2>
-        <!-- <h2> er en underoverskrift -->
-
-        <!-- ═══ AVSNITT ═══ -->
+    
         <p>
             HTML står for <strong>HyperText Markup Language</strong>.
             Det er språket vi bruker for å lage strukturen på nettsider.
         </p>
-        <!--
-            <p> = Paragraf/avsnitt
-            <strong> = Gjør tekst fet/viktig
-
-            OPPGAVE: Legg til et nytt avsnitt under dette!
-        -->
 
         <p>
             Med HTML kan vi lage overskrifter, avsnitt, bilder, lenker
-            og mye mer. <em>Det er lettere enn du tror!</em>
+            og mye mer. <em> Med bruk av blant annet HTML kan alle slags nettsider lages</em>
         </p>
-        <!-- <em> = Gjør tekst kursiv (emphasis) -->
 
-        <!-- ═══ BILDE ═══ -->
-        <h2>Et bilde</h2>
+        <h2>Ett bilde</h2>
         <img
             src="https://picsum.photos/400/200"
             alt="Et tilfeldig bilde"
             width="400"
         >
         <!--
-            IMG-TAGGEN FORKLART:
-            ═══════════════════
-
             <img> brukes for å vise bilder. Den har INGEN sluttagg!
 
             Attributter:
@@ -134,7 +70,6 @@
             • alt   = alternativ tekst (vises hvis bildet ikke lastes)
             • width = bredden på bildet i piksler
 
-            OPPGAVE: Bytt ut src med en annen bilde-URL!
             Tips: Du kan bruke et bilde fra internett eller en lokal fil.
 
             Eksempel med lokal fil:
@@ -147,52 +82,24 @@
             Her er en lenke til
             <a href="side2.html">side nummer to</a>.
         </p>
-        <!--
-            LENKE-TAGGEN FORKLART:
-            ══════════════════════
-
-            <a> = "anchor" (anker) - lager en klikkbar lenke
-
-            Attributter:
-            • href = "hypertext reference" - hvor lenken går
-
-            href kan være:
-            • En annen side: href="side2.html"
-            • En ekstern nettside: href="https://www.nrk.no"
-            • En e-post: href="mailto:navn@eksempel.no"
-        -->
 
         <p>
             Du kan også lenke til eksterne nettsider, som
-            <a href="https://www.w3schools.com" target="_blank">W3Schools</a>.
+            <a href="https://www.nrk.no" target="_blank">NRK</a>.
         </p>
-        <!-- target="_blank" åpner lenken i en ny fane -->
 
-        <!-- ═══ LISTE ═══ -->
         <h2>Hva jeg har lært</h2>
         <ul>
-            <!-- <ul> = Unordered List (punktliste) -->
             <li>HTML-struktur med DOCTYPE, html, head og body</li>
             <li>Overskrifter og avsnitt</li>
             <li>Hvordan legge til bilder</li>
             <li>Hvordan lage lenker</li>
-            <!--
-                <li> = List Item (listeelement)
-                OPPGAVE: Legg til flere ting du har lært!
-            -->
         </ul>
 
-        <!--
-            BONUS: Prøv å bytte <ul> med <ol>
-            ol = Ordered List (nummerert liste)
-        -->
     </main>
 
-    <!-- ═══ BUNNTEKST ═══ -->
     <footer>
-        <!-- <footer> brukes for bunntekst/footer -->
-        <p>Laget av en elev i 8. klasse | 2024</p>
-        <!-- OPPGAVE: Skriv inn ditt eget navn! -->
+        <p>Laget av S & R</p>
     </footer>
 
 </body>

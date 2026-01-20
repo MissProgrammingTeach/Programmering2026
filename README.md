@@ -1,4 +1,4 @@
-# Lær HTML og CSS - Introduksjon for 8. klasse
+# Lær HTML og CSS - Introduksjon for 9. trinn
 
 ## Om dette prosjektet
 
@@ -35,7 +35,7 @@ webdev-artifacts/
 - Dobbeltklikk på `index.html` for å åpne den i nettleseren
 
 ### Steg 3: Rediger filene
-- Åpne filene i et tekstredigeringsprogram (f.eks. Notepad, VS Code, eller Notepad++)
+- Åpne filene i VS Code
 - Gjør endringer og lagre filen
 - Oppdater nettleseren (trykk F5) for å se endringene
 
@@ -52,26 +52,25 @@ Les gjennom `index.html` og se om du kan finne:
 - Legg til et nytt avsnitt med informasjon om deg selv
 
 ### Oppgave 3: Eksperimenter med CSS
-Åpne `style.css` og prøv å:
-- Endre bakgrunnsfargen på siden
-- Gjøre overskriften større eller mindre
-- Endre fargen på lenkene
+Åpne `style.css` og prøv å gjøre oppgavene på bunnen av filen.
 
 ### Oppgave 4: Legg til et bilde
-- Finn et bilde på internett (husk opphavsrett!)
+- Finn et bilde på internett 
 - Legg til bildet på en av sidene ved å bruke `<img>`-taggen
 - Tips: Se kommentarene i HTML-filene for hjelp
 
-### Oppgave 5: Lag din egen side
+### Oppgave 5: Fyll ut side2.html
+- Bytt ut profilbildet med et annet bilde
+- Endre teksten i Om meg-avsnittet til et avsnitt om deg selv.
+- Endre interesse-listen til dine egne interesser.
+- Endre mine favoritter-listen til dine egne favoritter.
+- Endre epost til en annen epost.
+
+### Oppgave6: Lag din egen side
 - Lag en ny fil som heter `side3.html`
 - Kopier strukturen fra `index.html`
 - Fyll inn ditt eget innhold
 - Legg til en lenke til den nye siden
-
-## Nyttige ressurser
-
-- [W3Schools HTML Tutorial](https://www.w3schools.com/html/)
-- [W3Schools CSS Tutorial](https://www.w3schools.com/css/)
 
 ## Vanlige HTML-tagger
 
@@ -86,12 +85,3 @@ Les gjennom `index.html` og se om du kan finne:
 | `<li>` | Listeelement |
 | `<div>` | Innholdsboks |
 
-## Tips
-
-- **Lagre ofte!** Husk å lagre filen før du oppdaterer nettleseren
-- **Les feilmeldinger** - Hvis noe ikke fungerer, sjekk at alle tagger er lukket
-- **Eksperimenter!** - Den beste måten å lære på er å prøve og feile
-
----
-
-*Lykke til med kodingen!*
