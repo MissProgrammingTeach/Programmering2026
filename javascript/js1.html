@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║  INTRODUKSJON TIL JAVASCRIPT                                  ║
+    ║  Del 1: Endre CSS med JavaScript                              ║
+    ╚═══════════════════════════════════════════════════════════════╝
+
+    JavaScript (JS) er et programmeringsspråk som gjør nettsider
+    interaktive. Med JS kan vi:
+    - Reagere på klikk og tastetrykk
+    - Endre innhold og utseende på siden
+    - Lage spill og animasjoner
+    - Og mye mer!
+-->
+
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Endre CSS</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+    
+        .demo-boks {
+            padding: 30px;
+            margin: 20px 0;
+            text-align: center;
+            border: 3px solid #3498db;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            /* transition gjør at endringer skjer gradvis */
+        }
+
+        .knapp {
+            padding: 12px 24px;
+            font-size: 1em;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .knapp:hover {
+            transform: scale(1.05);
+        }
+
+        .knapp-blaa {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .knapp-gronn {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .knapp-roed {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .knapp-gul {
+            background-color: #f1c40f;
+            color: #333;
+        }
+
+        /* Skjema-styling */
+        .skjema-gruppe {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .skjema-gruppe label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .skjema-gruppe input,
+        .skjema-gruppe select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .skjema-gruppe input:focus,
+        .skjema-gruppe select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .melding {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .melding.vis {
+            display: block;
+        }
+
+        .melding.suksess {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="js1.html">JS: CSS</a>
+        <a href="js2.html">JS: Spill</a>
+    </nav>
+
+    <main>
+        <h1>JavaScript: Endre CSS</h1>
+
+        <p>
+            JavaScript kan endre hvordan elementer ser ut mens du bruker siden.
+            Dette kalles å <strong>manipulere CSS med JavaScript</strong>.
+        </p>
+
+        <!-- ═══ DEMO 1: ENDRE BAKGRUNNSFARGE ═══ -->
+        <h2>Demo 1: Endre bakgrunnsfarge</h2>
+        <p>Klikk på knappene for å endre fargen på boksen under:</p>
+
+        <div id="farge-boks" class="demo-boks">
+            <p>Denne boksen endrer farge!</p>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="knapp knapp-blaa" onclick="endreFarge('lightblue')">Blå</button>
+            <button class="knapp knapp-gronn" onclick="endreFarge('lightgreen')">Grønn</button>
+            <button class="knapp knapp-roed" onclick="endreFarge('lightcoral')">Rød</button>
+            <button class="knapp knapp-gul" onclick="endreFarge('lightyellow')">Gul</button>
+        </div>
+        <!--
+            onclick="endreFarge('lightblue')"
+            ═══════════════════════════════════
+
+            onclick er en "event handler" - den kjører JavaScript-kode
+            når brukeren klikker på knappen.
+
+            endreFarge('lightblue') kaller funksjonen "endreFarge"
+            med fargen "lightblue" som parameter.
+        -->
+
+        <!-- ═══ DEMO 2: ENDRE TEKSTSTØRRELSE ═══ -->
+        <h2>Demo 2: Endre tekststørrelse</h2>
+
+        <p id="tekst-demo" style="font-size: 18px;">
+            Denne teksten kan bli større eller mindre!
+        </p>
+
+        <div style="text-align: center;">
+            <button class="knapp knapp-blaa" onclick="endreTekstStorrelse(24)">Stor</button>
+            <button class="knapp knapp-gronn" onclick="endreTekstStorrelse(18)">Normal</button>
+            <button class="knapp knapp-roed" onclick="endreTekstStorrelse(12)">Liten</button>
+        </div>
+
+        <!-- ═══ DEMO 3: SKJUL OG VIS ═══ -->
+        <h2>Demo 3: Skjul og vis elementer</h2>
+
+        <div id="hemmelig-boks" class="demo-boks">
+            <p>Nå ser du meg!</p>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="knapp knapp-blaa" onclick="toggleSynlighet()">Skjul / Vis</button>
+        </div>
+
+        <!-- ═══ SKJEMA MED JAVASCRIPT ═══ -->
+        <h2>Demo 4: Skjema med JavaScript</h2>
+        <p>
+            JavaScript kan også lese det du skriver i skjemaer og gjøre
+            noe med informasjonen.
+        </p>
+
+        <form id="mitt-skjema" onsubmit="return handterSkjema(event)">
+            <!--
+                onsubmit kjører når skjemaet sendes inn.
+                "return false" stopper siden fra å laste på nytt.
+            -->
+
+            <div class="skjema-gruppe">
+                <label for="navn">Ditt navn:</label>
+                <input type="text" id="navn" placeholder="Skriv navnet ditt her...">
+                <!--
+                    id="navn" lar JavaScript finne dette input-feltet.
+                    placeholder viser hjelpetekst før brukeren skriver.
+                -->
+            </div>
+
+            <div class="skjema-gruppe">
+                <label for="farge-valg">Velg din favorittfarge:</label>
+                <select id="farge-valg">
+                    <option value="">-- Velg en farge --</option>
+                    <option value="lightblue">Blå</option>
+                    <option value="lightgreen">Grønn</option>
+                    <option value="lightcoral">Rød</option>
+                    <option value="lightyellow">Gul</option>
+                    <option value="plum">Lilla</option>
+                </select>
+            </div>
+
+            <div style="text-align: center;">
+                <button type="submit" class="knapp knapp-gronn">Send inn</button>
+            </div>
+        </form>
+
+        <div id="skjema-melding" class="melding suksess">
+            <!-- Meldingen vises her når skjemaet sendes -->
+        </div>
+
+        <!-- ═══ FORKLARING ═══ -->
+        <h2>Hvordan fungerer dette?</h2>
+
+        <p>JavaScript-koden ligger i filen <code>script1.js</code>. Her er noen viktige konsepter:</p>
+
+        <dl>
+            <dt>document.getElementById()</dt>
+            <dd>Finner et HTML-element med en bestemt id</dd>
+
+            <dt>element.style.egenskap</dt>
+            <dd>Endrer en CSS-egenskap på elementet</dd>
+
+            <dt>onclick</dt>
+            <dd>Kjører kode når brukeren klikker</dd>
+
+            <dt>function</dt>
+            <dd>En "oppskrift" med kode som kan kjøres flere ganger</dd>
+        </dl>
+
+        <p>
+            <a href="js2.html">Gå til neste side for å prøve et JavaScript-spill! →</a>
+        </p>
+
+    </main>
+
+    <footer>
+        <p>JavaScript-introduksjon for 9. trinn</p>
+    </footer>
+
+    <!--
+        ═══════════════════════════════════════════════════════════════
+        JAVASCRIPT-FILEN
+        ═══════════════════════════════════════════════════════════════
+
+        <script>-taggen kobler til JavaScript-filen.
+        Den skal være HELT NEDERST i <body>, slik at HTML-en
+        lastes før JavaScript-koden kjører.
+    -->
+    <script src="script1.js"></script>
+
+</body>
+</html>

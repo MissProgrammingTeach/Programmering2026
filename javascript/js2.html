@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!--
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║  JAVASCRIPT-SPILL: FANG EPLENE                                ║
+    ║  Et enkelt spill der du bruker piltastene for å fange epler   ║
+    ╚═══════════════════════════════════════════════════════════════╝
+-->
+
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Fang Eplene</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .spill-wrapper {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .spill-info {
+            display: flex;
+            justify-content: space-between;
+            max-width: 500px;
+            margin: 0 auto 10px auto;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .spill-canvas {
+            border: 4px solid #764ba2;
+            border-radius: 0 0 10px 10px;
+            background: linear-gradient(180deg, #87CEEB 0%, #98FB98 100%);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .spill-knapper {
+            margin-top: 15px;
+        }
+
+        .spill-knapp {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            margin: 5px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
+
+        .spill-knapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .knapp-start {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+        }
+
+        .knapp-stopp {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        .instruksjoner {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .instruksjoner h3 {
+            margin-top: 0;
+            color: #764ba2;
+        }
+
+        .tast {
+            display: inline-block;
+            background: #333;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 0 3px;
+        }
+
+        .game-over-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .game-over-boks {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            animation: popIn 0.3s ease;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .game-over-boks h2 {
+            color: #e74c3c;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .final-score {
+            font-size: 3em;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        /* Mobil-kontroller */
+        .mobil-kontroller {
+            display: none;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .mobil-knapp {
+            width: 70px;
+            height: 70px;
+            font-size: 2em;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .mobil-knapp:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 600px) {
+            .mobil-kontroller {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Hjem</a>
+        <a href="side2.html">Om meg</a>
+        <a href="js1.html">JS: CSS</a>
+        <a href="js2.html">JS: Spill</a>
+    </nav>
+
+    <main>
+        <h1>Fang Eplene!</h1>
+
+        <p>
+            Bruk piltastene for å flytte kurven og fang så mange epler som mulig.
+            Pass deg for de råtne eplene!
+        </p>
+
+        <!-- Spill-område -->
+        <div class="spill-wrapper">
+            <div class="spill-info">
+                <span>Poeng: <span id="poeng">0</span></span>
+                <span>Liv: <span id="liv">❤️❤️❤️</span></span>
+                <span>Rekord: <span id="rekord">0</span></span>
+            </div>
+
+            <canvas id="spill-canvas" class="spill-canvas" width="500" height="400">
+                Din nettleser støtter ikke canvas.
+            </canvas>
+            <!--
+                <canvas> er et HTML-element vi kan tegne på med JavaScript.
+                Det brukes ofte til spill og animasjoner.
+                width og height setter størrelsen i piksler.
+            -->
+
+            <!-- Mobil-kontroller for touch-enheter -->
+            <div class="mobil-kontroller">
+                <button class="mobil-knapp" id="venstre-knapp">←</button>
+                <button class="mobil-knapp" id="hoyre-knapp">→</button>
+            </div>
+
+            <div class="spill-knapper">
+                <button class="spill-knapp knapp-start" onclick="startSpill()">
+                    ▶ Start spill
+                </button>
+                <button class="spill-knapp knapp-stopp" onclick="stoppSpill()">
+                    ⏹ Stopp
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Over overlay -->
+        <div id="game-over" class="game-over-overlay">
+            <div class="game-over-boks">
+                <h2>GAME OVER!</h2>
+                <p>Du fikk</p>
+                <div id="final-poeng" class="final-score">0</div>
+                <p>poeng!</p>
+                <button class="spill-knapp knapp-start" onclick="lukkGameOver(); startSpill();">
+                    Spill igjen
+                </button>
+            </div>
+        </div>
+
+        <!-- Instruksjoner -->
+        <div class="instruksjoner">
+            <h3>Slik spiller du:</h3>
+            <ul>
+                <li>Trykk <span class="tast">←</span> og <span class="tast">→</span> for å flytte kurven</li>
+                <li>Fang de <strong style="color: #e74c3c;">røde eplene</strong> for å få poeng</li>
+                <li>Unngå de <strong style="color: #556B2F;">grønne råtne eplene</strong> - de tar liv!</li>
+                <li>Du har 3 liv - mister du alle er spillet over</li>
+                <li>Spillet blir vanskeligere jo flere poeng du får!</li>
+            </ul>
+        </div>
+
+        <!-- Forklaring av koden -->
+        <h2>Hvordan fungerer spillet?</h2>
+
+        <p>Dette spillet bruker <strong>HTML Canvas</strong> - et element vi kan tegne på med JavaScript.</p>
+
+        <h3>Viktige konsepter:</h3>
+        <dl>
+            <dt>Canvas og getContext('2d')</dt>
+            <dd>Gir oss verktøy for å tegne former, bilder og tekst</dd>
+
+            <dt>requestAnimationFrame()</dt>
+            <dd>Kjører spilløkken ca. 60 ganger per sekund for jevn animasjon</dd>
+
+            <dt>addEventListener('keydown')</dt>
+            <dd>Lytter etter tastetrykk slik at vi kan styre spilleren</dd>
+
+            <dt>Kollisjonsdeteksjon</dt>
+            <dd>Sjekker om to objekter (kurv og eple) overlapper</dd>
+        </dl>
+
+        <p>
+            <a href="js1.html">← Tilbake til CSS-manipulering</a>
+        </p>
+
+    </main>
+
+    <footer>
+        <p>JavaScript-introduksjon for 9. trinn</p>
+    </footer>
+
+    <script src="script2.js"></script>
+
+</body>
+</html>
